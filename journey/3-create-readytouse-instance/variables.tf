@@ -14,12 +14,17 @@ variable "ssh_public_key" {
   default     = "~/.ssh/id_rsa.pub"
 }
 
+variable "ssh_private_key" {
+  description = "The path of the ssh private key that will be used"
+  default     = "~/.ssh/id_rsa"
+}
+
 variable "flavor_name" {
   description = "flavor name of nodes."
   default     = "s1-2"
 }
 
-variable "count" {
+variable "blog_count" {
   description = "number of blog nodes per region"
   default     = 1
 }

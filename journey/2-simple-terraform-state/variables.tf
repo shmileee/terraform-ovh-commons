@@ -1,6 +1,6 @@
 variable "region" {
   description = "The id of the openstack region"
-  default = "GRA3"
+  default = "WAW"
 }
 
 variable "name" {

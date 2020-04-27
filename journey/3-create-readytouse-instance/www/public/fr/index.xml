@@ -39,18 +39,9 @@ It makes use of a variety of open source projects including:
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/fr/2014/04/d%C3%A9buter-avec-hugo/</guid>
-      <description>&lt;h2 id=&#34;étape-1-installer-hugo&#34;&gt;Étape 1. Installer Hugo&lt;/h2&gt;
-
-&lt;p&gt;Allez sur la page de téléchargements de
-&lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;hugo&lt;/a&gt; et téléchargez la version
-appropriée à votre système d&amp;rsquo;exploitation et votre architecture.&lt;/p&gt;
-
-&lt;p&gt;Sauvegardez le fichier téléchargé à un endroit précis, afin de l&amp;rsquo;utiliser dans
-l&amp;rsquo;étape suivante.&lt;/p&gt;
-
-&lt;p&gt;Des informations plus complètes sont disponibles sur la page
-&lt;a href=&#34;https://example.com/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;
-&lt;/p&gt;</description>
+      <description>Étape 1. Installer Hugo Allez sur la page de téléchargements de hugo et téléchargez la version appropriée à votre système d&amp;rsquo;exploitation et votre architecture.
+Sauvegardez le fichier téléchargé à un endroit précis, afin de l&amp;rsquo;utiliser dans l&amp;rsquo;étape suivante.
+Des informations plus complètes sont disponibles sur la page installing hugo Étape 2. Compilez la documentation Hugo possède son propre site d&amp;rsquo;exemple qui se trouve être également le site que vous lisez actuellement.</description>
     </item>
     
     <item>

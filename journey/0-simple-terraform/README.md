@@ -36,7 +36,7 @@ The first 3 steps of the journey are pure [Terraform](https://www.terraform.io/d
 First, if it hasn't already been done, download the terraform binany for your platform of choice:
 
 ```bash
-curl -fLs -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_linux_amd64.zip
+curl -fLs -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
 (cd /tmp && unzip terraform.zip)
 sudo mv /tmp/terraform /usr/local/bin
 sudo chmod +x /usr/local/bin/terraform
@@ -84,6 +84,7 @@ We can apply our configuration
 
 ```bash
 source ~/openrc.sh
+terraform init
 terraform apply
 ```
 

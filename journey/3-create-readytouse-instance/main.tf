@@ -1,12 +1,12 @@
 
 terraform {
   backend "swift" {
-    container = "demo-remote-state"
+    container = "terraform"
   }
 }
 
 provider "openstack" {
-  version     = "= 1.5"
+  #version     = "= 1.5"
   region      = "${var.region_a}"
   alias = "region_a"
 }
@@ -17,7 +17,7 @@ data "openstack_networking_network_v2" "public_a" {
 }
 
 resource "openstack_networking_port_v2" "public_a" {
-  count          = "${var.count}"
+  count          = "${var.blog_count}"
   name           = "${var.name}_a_${count.index}"
   network_id     = "${data.openstack_networking_network_v2.public_a.id}"
   admin_state_up = "true"
@@ -65,7 +65,7 @@ SETUP
 data "template_file" "myblog_conf" {
   template = "${file("${path.module}/myblog.conf.tpl")}"
 
-  vars {
+  vars = {
     server_name = "${var.name}.${var.zone}"
   }
 }
@@ -97,30 +97,31 @@ CLOUDCONFIG
 }
 
 resource "openstack_compute_instance_v2" "nodes_a" {
-  count       = "${var.count}"
+  count       = "${var.blog_count}"
   name        = "${var.name}_a_${count.index}"
   image_name  = "Ubuntu 18.04"
   flavor_name = "${var.flavor_name}"
   key_pair    = "${openstack_compute_keypair_v2.keypair_a.name}"
   user_data   = "${data.template_file.userdata.rendered}"
+  security_groups = ["default"]
 
   network {
-    access_network = true
-    port           = "${openstack_networking_port_v2.public_a.*.id[count.index]}"
+    name = "Ext-Net"
   }
 
   provider = "openstack.region_a"
 }
 
 resource "null_resource" "provision_a" {
-  count = "${var.count}"
+  count = "${var.blog_count}"
 
-  triggers {
+  triggers = {
     id = "${openstack_compute_instance_v2.nodes_a.*.id[count.index]}"
   }
 
   connection {
     host = "${openstack_compute_instance_v2.nodes_a.*.access_ip_v4[count.index]}"
+    private_key = "${file(var.ssh_private_key)}"
     user = "ubuntu"
   }
 
